@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Drupal Styles
+ */
+
+// Include Color Maps
+@import '../settings/color-map/**/*';
+
+// Include Variables
+@import '../settings/varialbes/**/*';
+
+// Include Fucntions
+@import '../settings/functions/**/*';
+
+// Include Bootstrap
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+
+// Include Mixins
+@import '../settings/mixins/**/*';
+
+// Include Placeholders
+@import '../settings/placeholders/**/*';
+
+// Include Drupal
+@import './**/*';

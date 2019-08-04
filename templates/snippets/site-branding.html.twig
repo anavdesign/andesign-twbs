@@ -1,0 +1,33 @@
+{% if brand_logo or brand_name or brand_slogan %}
+<div class="site-branding">
+
+  {% if brand_logo %}
+  <div class="site-branding__item site-branding__logo">
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      {% include directory ~ '/templates/includes/logo.html.twig' %}
+    </a>
+  </div>{# /.site-branding-logo #}
+  {% endif %}
+
+  {% if brand_name or brand_slogan %}
+  <div class="site-branding__item site-branding__name">
+
+    {% if brand_name %}
+    <div class="site-branding-name">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        {{ site_name }}
+      </a>
+    </div>{# /.site-branding-name #}
+    {% endif %}
+
+    {% if brand_slogan %}
+    <div class="site-branding__item site-branding__slogan">
+      {{ site_slogan }}
+    </div>{# /.site-branding-slogan #}
+    {% endif %}
+
+  </div>{# /.site-branding-text #}
+  {% endif %}
+
+</div>{# /.site-branding #}
+{% endif %}

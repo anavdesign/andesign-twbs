@@ -1,0 +1,38 @@
+/**
+ * @file
+ * Menu Base
+ */
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none outside;
+  text-align: left;
+}
+
+.menu-item {
+  margin: 0;
+  padding:0;
+  list-style: none;
+}
+
+.menu-link {
+  display: block;
+  border: none;
+  text-decoration: none;
+  transition: .3s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.menu--disc {
+  list-style: disc;
+  margin-left: 18px;
+}
+
+[dir="rtl"] ul.menu {
+  text-align: right;
+}

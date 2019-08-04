@@ -1,0 +1,28 @@
+{% block content %}
+  <div id="layout-content-main" class="layout-content-main{% if not container_content_main %} container-none{% endif %}">
+    {% if container_content_main %}
+      <div class="container">
+    {% endif %}
+      <div class="layout-content-main__content">
+
+        {% block main %}
+          <main id="layout-main" class="layout-main layout-content-main__item">
+            <section class="section">
+              <a id="main-content" tabindex="-1"></a>
+              {{ page.content }}
+            </section>
+          </main> {# /.layout-main #}
+        {% endblock %}
+
+        {% if page.sidebar and show_sidebars %}
+          <aside id="layout-sidebar" class="layout-sidebar layout-content-main__item section" role="complementary">
+            {{ page.sidebar }}
+          </aside> {# /.layout-sidebar #}
+        {% endif %}
+
+      </div/> {# /.layout-content-main__content #}
+    {% if container_content_main %}
+      </div>
+    {% endif %}
+  </div> {# /#layout-content-main #}
+{% endblock %}

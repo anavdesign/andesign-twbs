@@ -1,0 +1,51 @@
+/**
+ * @file
+ * Media Queries
+ */
+
+// Maximum Width
+@mixin maxWidth($maxSize, $mediaType: all) {
+  @if type-of($maxSize)==string {
+    $maxSize: breakpoint($maxSize) - 1;
+  }
+  @media #{$mediaType} and (max-width: $maxSize) {
+    @content;
+  }
+}
+
+// Minimum Width
+@mixin minWidth($minSize, $mediaType: all) {
+  @if type-of($minSize)==string {
+    $minSize: breakpoint($minSize);
+  }
+  @media #{$mediaType} and (min-width: $minSize) {
+    @content;
+  }
+}
+
+// Minimum To Maximum Width
+@mixin minMax($minSize, $maxSize, $mediaType: all) {
+  @if type-of($minSize)==string {
+    $minSize: breakpoint($minSize);
+  }
+  @if type-of($maxSize)==string {
+    $maxSize: breakpoint($maxSize) - 1;
+  }
+  @media #{$mediaType} and (min-width: $minSize) and (max-width: $maxSize) {
+    @content;
+  }
+}
+
+// Mobile Max 768
+@mixin mobile($mediaType: all) {
+  @include maxWidth(breakpoint($desktopBreakPoint) - 1, $mediaType: $mediaType) {
+    @content;
+  }
+}
+
+// Desktop Min 769
+@mixin desktop($mediaType: all) {
+  @include minWidth(breakpoint($desktopBreakPoint), $mediaType: $mediaType) {
+    @content;
+  }
+}

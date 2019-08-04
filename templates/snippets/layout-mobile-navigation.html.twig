@@ -1,0 +1,34 @@
+{% if page.mobile_nav_header or page.mobile_nav_content or page.mobile_nav_footer %}
+  <div id="layout-mobile-navigation-overlay" class="toggle-button--mobile-menu layout-mobile-navigation-overlay"></div>
+
+  <div id="layout-mobile-navigation" class="layout-mobile-navigation">
+    <div class="layout-mobile-navigation-wrapper">
+
+      {% if page.mobile_nav_header %}
+        <div id="layout-mobile-navigation-header" class="layout-mobile-navigation-header">
+          {{ page.mobile_nav_header }}
+        </div> {# /#layout-mobile-navigation-header #}
+      {% endif %}
+
+      {% if page.mobile_nav_content %}
+        <div id="layout-mobile-navigation-content" class="layout-mobile-navigation-content">
+          {{ page.mobile_nav_content }}
+        </div> {# /#layout-mobile-navigation-content #}
+      {% endif %}
+
+      {% if page.mobile_nav_footer %}
+        <div id="layout-mobile-navigation-footer" class="layout-mobile-navigation-footer">
+          {{ page.mobile_nav_footer }}
+        </div> {# /#layout-mobile-navigation-footer #}
+      {% endif %}
+
+    </div> {# /.layout-mobile-navigation-wrapper #}
+
+    <div id="mobile-menu-close" class="toggle-button toggle-button--mobile-menu mobile-menu-close">
+      <svg width="16" height="16" viewBox="0 0 16 16">
+        <use xlink:href="#icon-close"></use>
+      </svg>
+    </div> {# /#mobile-menu-close #}
+
+  </div>{# /#layout-mobile-navigation #}
+{% endif %}

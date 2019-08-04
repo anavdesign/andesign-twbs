@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Breakpoints
+ */
+
+// Breakpoints
+$xxs : 320px;
+$xs  : 480px;
+$sm  : 576px;
+$md  : 768px;
+$lg  : 992px;
+$xl  : 1200px;
+$xxl : 1400px;
+
+// Breakpoint Map
+$breakpoint : (
+xxs  : $xxs,
+xs   : $xs,
+sm   : $sm,
+md   : $md,
+lg   : $lg,
+xl   : $xl,
+xxl  : $xxl,
+);
+
+// Desktop Media Query Breakpoint
+$desktopBreakPoint : lg;

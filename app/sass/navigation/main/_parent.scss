@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Main Navigation Parent Links
+ */
+
+// Parent Menu Link
+.layout-main-navigation .menu--expanded a.menu-link-level-0 {
+  font-family: $font-family-navigation;
+  @include responsiveType(1.75vw, 16px, 20px, 18px);
+  color: $menu-main-parent-link-color;
+  text-transform: uppercase;
+
+  span {
+    padding: $menu-main-parent-padding;
+  }
+
+}
+
+// Hover and Active Trail
+.layout-main-navigation .menu--expanded .menu-item-level-0 {
+  transition: 0.3s ease;
+
+  &:hover,
+  &.active-trail,
+  &.js-active-trail {
+    background-color: palette(black, l2);
+  }
+
+}

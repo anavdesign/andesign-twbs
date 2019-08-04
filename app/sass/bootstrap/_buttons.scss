@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Buttons
+ */
+
+// Webform Actions
+.form-actions .button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.btn,
+.form-actions .button {
+  text-transform: uppercase;
+}

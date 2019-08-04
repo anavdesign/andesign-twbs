@@ -1,0 +1,13 @@
+{% if page.highlighted %}
+  <aside id="layout-highlighted" class="layout-highlighted{% if not container_highlighted %} container-none{% endif %}" role="complementary">
+    {% if container_highlighted %}
+      <div class="container">
+    {% endif %}
+      <div class="layout-highlighted__content">
+        {{ page.highlighted }}
+      </div> {# /.layout-highlighted__content #}
+    {% if container_highlighted %}
+      </div> {# /.container #}
+    {% endif %}
+  </aside> {# /.layout-highlighted #}
+{% endif %}

@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Cards
+ */
+
+// Slice Column Cards
+.slice-card-container {
+
+  .slice-column-item {
+    @extend .card;
+  }
+
+  .slice-column-header {
+    @extend .card-header;
+  }
+
+  .slice-column-body {
+    @extend .card-body;
+  }
+
+}

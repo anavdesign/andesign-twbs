@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Link Color
+ */
+
+@mixin linkColor($color, $hover-color) {
+  color: $color;
+
+  &:hover {
+    color: $hover-color;
+  }
+
+}

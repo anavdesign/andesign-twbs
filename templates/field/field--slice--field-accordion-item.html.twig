@@ -1,0 +1,39 @@
+{# {{ kint(items) }} #}
+{%
+  set accordian_id = 'accordian-' ~ element['#items'].getEntity().id()
+%}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    'field__items',
+    'slices',
+    'slice-accordions',
+    'accordion',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }} id="{{ accordian_id }}" role="tablist" aria-multiselectable="true">
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item slice card') }}>
+
+      <div class="card-header" id="accordion-item-heading-{{ loop.index }}">
+        <h2 class="slice-heading m-0">
+          <button class="text-size-small text-left btn btn-block btn-link{% if not loop.first %} collapsed{% endif %}" type="button" data-toggle="collapse" data-target="#accordion-item-{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="accordion-item-{{ loop.index }}">
+          {{ item.content['#accordion_item'].field_header.value }}
+        </button>
+        </h2>
+      </div> {# /.card-heading#}
+
+      <div id="accordion-item-{{ loop.index }}" class="collapse{% if loop.first %} show{% endif %}" aria-labelledby="accordion-item-heading-{{ loop.index }}" data-parent="#{{ accordian_id }}">
+        <div class="card-body">
+          {{ item.content['#accordion_item'].field_body.value|t() }}
+        </div> {# /.card-body #}
+      </div> {# /.collapse #}
+
+    </div> {# /.card #}
+
+  {% endfor %}
+</div> {# /.slice-accordions #}

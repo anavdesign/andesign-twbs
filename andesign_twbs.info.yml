@@ -1,0 +1,34 @@
+name: andesign Bootstrap Theme
+description: andesign Bootstrap Theme
+type: theme
+package: theme
+core: 8.x
+base theme: classy
+
+libraries:
+  - andesign_twbs/global-styles
+  - andesign_twbs/global-scripts
+
+stylesheets-remove:
+  - '@classy/css/components/menu.css'
+  - '@classy/css/components/tabs.css'
+
+regions:
+  site_branding         : 'Site Branding'
+  navigation            : 'Navigation'
+  header_right          : 'Header Right'
+  highlighted           : 'Highlighted'
+  content_title         : 'Page Title'
+  content               : 'Content'
+  sidebar               : 'Sidebar'
+  content_bottom_first  : 'Content Bottom First'
+  content_bottom_second : 'Content Bottom Second'
+  content_bottom_third  : 'Content Bottom Third'
+  footer_top            : 'Footer Top'
+  footer_main_first     : 'Footer Main First'
+  footer_main_second    : 'Footer Main Second'
+  footer_main_third     : 'Footer Main Third'
+  footer_bottom         : 'Footer Bottom'
+  mobile_nav_header     : 'Mobile Nav Header'
+  mobile_nav_content    : 'Mobile Nav Content'
+  mobile_nav_footer     : 'Mobile Nav Footer'

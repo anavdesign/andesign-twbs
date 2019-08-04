@@ -1,0 +1,35 @@
+/**
+ * @file
+ * Scroll Top
+ */
+
+$scoll-top-size: 30px;
+
+.layout-scroll-top {
+  padding: 10px;
+  position: fixed;
+  bottom: $scoll-top-size;
+  right: -#{$scoll-top-size * 2};
+  z-index: z(z5);
+  opacity: .25;
+  background-color: palette(white);
+  border-radius: 100%;
+  transform: rotate(270deg);
+  transition: all .3s;
+
+  &.js-active {
+    right: 15px;
+    transform: rotate(0);
+  }
+
+  &:hover {
+    opacity: .75;
+  }
+
+  svg {
+    width: $scoll-top-size;
+    height: $scoll-top-size;
+    fill: palette(black);
+  }
+
+}

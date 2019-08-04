@@ -1,0 +1,44 @@
+features:
+  comment_user_picture: false
+  comment_user_verification: false
+  favicon: false
+  logo: true
+  name: true
+  slogan: true
+  node_user_picture: false
+
+# Sticky Header
+# ---------------
+sticky_header: 0
+
+# Layout
+# ---------------
+container_header: 1
+container_navigation: 1
+container_highlighted: 1
+container_content_title: 1
+container_content_main: 1
+container_content_bottom: 1
+container_footer_top: 1
+container_footer_main: 1
+container_footer_bottom: 1
+
+# Breadcrumbs
+# ---------------
+breadcrumb_trail: 2
+
+# Navigation
+# ---------------
+mobile_menu_position: 'left'
+
+# Footer
+# ---------------
+copyright_text: '&copy; @year. All Rights Reserved.'
+
+# UX
+# ---------------
+scroll_top: 1
+
+# Theming
+# ---------------
+viewport_size: 1

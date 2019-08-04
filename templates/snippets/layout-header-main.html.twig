@@ -1,0 +1,45 @@
+<div id="layout-header-main" class="layout-header-main layout-header__item{% if not container_header %} container-none{% endif %}">
+  {% if container_header %}
+    <div class="container">
+  {% endif %}
+
+    <div class="layout-header-main__content">
+
+      {% if page.site_branding %}
+        <div id="site-branding" class="site-branding layout-header-main__item">
+          {{ page.site_branding }}
+
+          <div id="mobile-menu-open" class="mobile-menu-open toggle-button toggle-button--mobile-menu">
+            <svg width="30" height="30" viewBox="0 0 16 16">
+              <use xlink:href="#icon-nav"></use>
+            </svg>
+          </div> {# /#mobile-menu-toggle #}
+
+        </div> {# /#site-branding #}
+      {% endif %}
+
+      {% if page.header_top or page.header %}
+        <div class="header-content layout-header-main__item">
+
+          {% if page.header_top %}
+            <div id="header-top" class="header-top">
+              {{ page.header_top }}
+            </div> {# /#header-top #}
+          {% endif %}
+
+          {% if page.header %}
+            <div id="header-main" class="header-main">
+              {{ page.header }}
+            </div> {# /#header-main #}
+          {% endif %}
+
+        </div>
+      {% endif %}
+
+
+    </div> {# /.layout-header-main__content #}
+
+  {% if container_header %}
+    </div> {# /.container #}
+  {% endif %}
+</div> {# /.layout-header-main #}

@@ -1,0 +1,14 @@
+/**
+ * @file
+ * Button
+ */
+
+// Primary
+@mixin button( $color: white, $bgnd:primary) {
+  box-shadow: none;
+  text-shadow: none;
+  color: palette($color);
+  border-color: darken(palette($bgnd), 5% );
+  background-color: palette($bgnd);
+  background-image: none;
+}

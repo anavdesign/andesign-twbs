@@ -1,0 +1,27 @@
+{% set classes = [
+'eck-entity',
+'slice-column-item',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+
+  {% if content.field_header|render %}
+    <div class="slice-column-header">
+      {# content.field_image.0 #}
+      <h2 class="slice-heading m-0">{{ content.field_header.0 }}</h2>
+    </div>
+  {% endif %}
+
+  <div class="slice-column-body">
+    <div class="slice-column-content">
+      {{ content.field_content_item }}
+    </div>
+    {% if content.field_button|render %}
+      <p class="slice-column-button text-center mb-0">
+       {{ content.field_button.0 }}
+        {# <a class="btn btn-primary" href="{{ content.field_button.0['#url'] }}">{{ content.field_button.0['#title'] }}</a> #}
+      </p>
+    {% endif %}
+  </div>
+
+</div>

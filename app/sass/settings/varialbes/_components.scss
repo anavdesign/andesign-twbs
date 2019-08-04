@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Components
+ */
+
+@import './layout.scss';
+
+// Actions
+$action-spacer                : $layout-gutter;
+
+// Text Columns
+$text-columns                 : 5;
+$text-columns-gap             : 30px;
+
+// Slick Arrows
+$slick-arrow-width            : 50px;
+$slick-arrow-chevron-size     : 25px;
+$slick-arrow-chevron-width    : 5px;
+$slick-arrow-chevron-color    : $gray;
+
+// Slick Pager
+$slick-pager-gutter           : 5px;
+$slick-pager-dot-size         : 10px;
+$slick-pager-dot-color        : palette(gray, l3);
+$slick-pager-dot-color-active : $primary;

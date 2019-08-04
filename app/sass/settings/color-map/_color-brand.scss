@@ -1,0 +1,35 @@
+/**
+ * @file
+ * Brand Color Map
+ */
+
+// Include Color Map Variables
+@import '../varialbes/color-maps';
+
+// Include Create Color Map Function
+@import '../functions/create-color-map';
+
+$color-brand: (
+  google    : $google,
+  linkedin  : $linkedin,
+  sharethis : $sharethis,
+  facebook  : $facebook,
+  twitter   : $twitter,
+  pinterest : $pinterest,
+  youtube   : $youtube,
+  amazon    : $amazon,
+  flickr    : $flickr,
+  scribd    : $scribd,
+  apple     : $apple,
+);
+
+$palette-brand: ();
+
+@each $key,
+$value in $color-brand {
+  $map: ();
+  $map: map-merge($map, ($key: create-color-map($value, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%)));
+  $palette-brand: map-merge($palette-brand, $map);
+}
+
+// @debug $palette-brand;

@@ -1,0 +1,50 @@
+/**
+ * @file
+ * Color Maps
+ *
+ */
+
+// Actions Color Map
+$success   : #28a745;
+$info      : #17a2b8;
+$danger    : #dc3545;
+
+// Alerts Color Map
+$status    : #28a745;
+$warning   : #ffc107;
+$error     : #dc3545;
+
+// Base Color Map
+$black     : #000000;
+$white     : #FFFFFF;
+$gray      : #5f6473;
+$red       : #bb0000;
+$orange    : #ff8000;
+$yellow    : #ffff00;
+$lime      : #80ff00;
+$green     : #008000;
+$turquoise : #00ff80;
+$cyan      : #00FFFF;
+$cobalt    : #007fff;
+$blue      : #0000ff;
+$violet    : #7f00ff;
+$magenta   : #ff00ff;
+$crimson   : #ff0080;
+
+// Brand Color Map
+$google    : #d34836;
+$linkedin  : #0077b5;
+$sharethis : #94d228;
+$facebook  : #3b5998;
+$twitter   : #00aced;
+$pinterest : #cb2027;
+$youtube   : #bb0000;
+$amazon    : #feae15;
+$flickr    : #0063dc;
+$scribd    : #00b7ef;
+$apple     : #7D7D7D;
+
+// Theme Color Map
+$primary   : $cobalt;
+$secondary : darken($cobalt, 10%);
+$tertiary  : lighten($gray, 50%);

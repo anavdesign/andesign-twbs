@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0, menu_name) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+  {% if items %}
+    {%
+        set menu_classes = [
+            'menu',
+            'menu--' ~ menu_name,
+            'menu-level-' ~ menu_level,
+        ]
+    %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass(menu_classes) }}>
+    {% else %}
+      <ul class="menu {{ 'menu--submenu menu-level-' ~ menu_level }}">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [
+          'menu-item',
+          'menu-item-level-' ~ menu_level,
+          'menu-' ~ item.title|lower|replace(' ', '-') ,
+          item.is_expanded ? 'menu-item--expanded',
+          item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'active-trail',
+        ]
+      %}
+
+      {# URL Varialbe for comparison #}
+      {% set menuUri %}{{ item.url }}{% endset %}
+      {%
+        set link_classes = [
+          'menu-link',
+          'menu-link-level-' ~ menu_level,
+          item.is_expanded ? 'menu-link--expanded',
+          not menuUri ? 'menu-link--disable',
+        ]
+      %}
+
+      {% if item.url.getOption('attributes') %}
+        {% set link_attributes = create_attribute(item.url.getOption('attributes')) %}
+      {% else %}
+        {% set link_attributes = create_attribute() %}
+      {% endif %}
+
+      <li{{ item.attributes.addClass(item_classes) }}>
+        {% if item.below %}
+            <a href="{{ item.url }}" {{ link_attributes.addClass(link_classes).removeClass(item_classes) }} aria-haspopup="true">
+              <span>{{ item.title }}</span>
+              <span class="menu-link-chevron">
+                <svg width="16" height="16" viewBox="0 0 16 16">
+                  <use xlink:href="#icon-chevron-down"></use>
+                </svg>
+              </span>
+            </a>
+            {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
+        {% else %}
+            <a href="{{ item.url }}" {{ link_attributes.addClass(link_classes).removeClass(item_classes) }}><span>{{ item.title }}</span></a>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

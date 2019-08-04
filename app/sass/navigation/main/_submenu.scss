@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Main Navigation Submenu
+ */
+
+.layout-main-navigation .menu--expanded .menu--submenu {
+  min-width: 200px;
+  @include responsiveType(1.75vw, 12px, 16px, 16px);
+  line-height: 1.125;
+  background-color: $menu-main-submenu-background-color;
+
+  // Menu Link
+  .menu-link {
+    @include linkColor($menu-main-submenu-link-color, $menu-main-submenu-link-color-hover);
+
+    &:hover {
+      background-color: palette(white, d1);
+    }
+
+    span {
+      padding: $menu-main-submenu-padding;
+    }
+
+  }
+
+  // Active Trail
+  .active-trail > .menu-link {
+    background-color: palette(white, d1);
+  }
+
+  @if ($menu-main-submenu-border-width != null) {
+
+    // Expanded Submenu Border
+    border: $menu-main-submenu-border-width solid $menu-main-submenu-border-color;
+    border-top: none;
+
+    .menu-item {
+      border-top: $menu-main-submenu-border-width solid $menu-main-submenu-border-color;
+    }
+
+    .menu--submenu {
+      margin-top: $menu-main-submenu-border-width * -1;
+    }
+
+  }
+
+}

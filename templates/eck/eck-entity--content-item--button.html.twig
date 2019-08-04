@@ -1,0 +1,13 @@
+{% set classes = [
+'eck-entity',
+'slice-content',
+'slice-content-button',
+'text-center',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  <p>
+    {{ content.field_button.0 }}
+    {# <a class="btn btn-primary" href="{{ content.field_button.0['#url'] }}">{{ content.field_button.0['#title'] }}</a> #}
+  </p>
+</div>

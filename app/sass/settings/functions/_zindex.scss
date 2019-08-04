@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Zindex
+ */
+
+@function z($key) {
+  @if map-has-key($zindex, $key) {
+    @return map-get($zindex, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $zindex.";
+  @return null;
+}

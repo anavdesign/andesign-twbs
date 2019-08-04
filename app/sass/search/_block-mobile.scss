@@ -1,0 +1,20 @@
+/**
+ * @file
+ * Mobile Search Block
+ */
+
+// Text input Field
+.layout-mobile-navigation .block-search {
+
+  .form-item input {
+    text-align: center;
+    border-bottom: 1px solid palette(black, l2);
+    font-size: 1.5em;
+  }
+
+  // Form Search Button
+  .search-button svg {
+    fill: $white;
+  }
+
+}

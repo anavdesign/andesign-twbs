@@ -1,0 +1,106 @@
+/**
+ * @file
+ * Viewport Size Breakpoints
+ */
+
+.layout-viewport-size {
+
+  @include minMax(xxs, xs) {
+    background-color: palette(orange);
+    color: palette(white);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'XXS (320px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Mobile';
+    }
+
+  }
+
+  @include minMax(xs, sm) {
+    background-color: palette(yellow);
+    color: palette(black);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'XS (480px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Large Mobile';
+    }
+
+  }
+
+  @include minMax(sm, md) {
+    background-color: palette(green);
+    color: palette(white);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'SM (576px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Small Tablet';
+    }
+
+  }
+
+  @include minMax(md, lg) {
+    background-color: palette(cyan);
+    color: palette(black);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'MD (768px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Tablet';
+    }
+
+  }
+
+  @include minMax(lg, xl) {
+    background-color: palette(blue);
+    color: palette(white);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'LG (992px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Large Tablet';
+    }
+
+  }
+
+  @include minWidth(xl) {
+    background-color: palette(magenta);
+    color: palette(white);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'XL (1200px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Desktop';
+    }
+
+  }
+
+  @include minWidth(xxl) {
+    background-color: palette(crimson);
+    color: palette(white);
+
+    .layout-viewport-size__breakpoint::after {
+      content: 'XXL (1400px)';
+    }
+
+    .layout-viewport-size__device::after {
+      content: 'Desktop';
+    }
+
+  }
+
+}

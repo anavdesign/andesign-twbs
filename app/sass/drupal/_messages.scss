@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Messages
+ */
+
+.messages {
+
+  &:first-child,
+  ~ .messages {
+    margin-top: $spacer * .5;
+  }
+
+  &:last-child {
+    margin-bottom: $spacer * .5;
+  }
+
+}

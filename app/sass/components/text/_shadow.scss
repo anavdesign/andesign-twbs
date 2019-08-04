@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Text Shadows
+ */
+
+.text-shadow-light {
+  text-shadow: 3px 3px 4px hsla(0, 100%, 0%, 0.25);
+}
+
+.text-shadow-dark {
+  text-shadow: 3px 3px 4px hsla(0, 100%, 0%, 0.4);
+}

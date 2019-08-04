@@ -1,0 +1,72 @@
+<footer id="layout-footer" class="layout-footer">
+
+  {% if page.footer_top %}
+    <div id="layout-footer-top" class="layout-footer-top footer__item{% if not container_footer_top %} container-none{% endif %}">
+      {% if container_footer_top %}
+      <div class="container">
+      {% endif %}
+        <div class="layout-footer-top__content">
+          {{ page.footer_top }}
+        </div> {# /.layout-footer-top__content #}
+      {% if container_footer_top %}
+        </div> {# /.container #}
+      {% endif %}
+    </div> {# /.layout-footer-top #}
+  {% endif %}
+
+  {#
+    Add content_region class
+    if the main footer contains multiple regions
+  #}
+  {% if (page.footer_main_first and page.footer_main_second) or (page.footer_main_first and page.footer_main_third) or (page.footer_main_second and page.footer_main_third) %}
+    {% set footer_main_regions = true %}
+  {% else %}
+    {% set footer_main_regions = false %}
+  {% endif %}
+
+  {% if page.footer_main_first or page.footer_main_second or page.footer_main_third %}
+    <div id="layout-footer-main" class="layout-footer-main footer__item{% if not container_footer_main %} container-none{% endif %}">
+      {% if container_footer_main %}
+      <div class="container">
+      {% endif %}
+        <div class="layout-footer-main__content{% if footer_main_regions %} footer-main__regions{% endif %}">
+          {{ page.footer_main_first }}
+          {{ page.footer_main_second }}
+          {{ page.footer_main_third }}
+        </div> {# /.layout-footer-main__content #}
+      {% if container_footer_main %}
+        </div> {# /.container #}
+      {% endif %}
+    </div>{# /layout-footer-main #}
+  {% endif %}
+
+  {#
+    Add content_region class
+    if the bottom footer contains multiple regions
+  #}
+  {% if page.footer_bottom and copyright_text %}
+    {% set footer_bottom_regions = true %}
+  {% else %}
+    {% set footer_bottom_regions = false %}
+  {% endif %}
+
+  {% if page.footer_bottom or copyright_text %}
+    <div id="layout-footer-bottom" class="layout-footer-bottom footer__item{% if not container_footer_bottom %} container-none{% endif %}">
+      {% if container_footer_bottom %}
+      <div class="container">
+      {% endif %}
+        <div class="layout-footer-bottom__content{% if footer_bottom_regions %} footer-bottom__regions{% endif %}">
+          {% if copyright_text %}
+            <div class="footer-copyright">
+              <small>{{ copyright_text }}</small>
+            </div>
+          {% endif %}
+          {{ page.footer_bottom }}
+        </div> {# /.layout-footer-bottom__content #}
+      {% if container_footer_bottom %}
+        </div> {# /.container #}
+      {% endif %}
+    </div> {# /.layout-footer-bottom #}
+  {% endif %}
+
+</footer> {# /.footer #}

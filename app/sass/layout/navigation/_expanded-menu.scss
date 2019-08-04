@@ -1,0 +1,94 @@
+/**
+ * @file
+ * Expanded Menu
+ */
+
+.layout-main-navigation .menu--expanded .menu-item--expanded,
+.layout-header .block-expanded--main-navigation {
+  position: relative;
+}
+
+// Expanded Menu Links
+.layout-main-navigation .menu--expanded .menu-link {
+  display: flex;
+  align-items: center;
+
+  > span:first-child {
+    flex: 1 1 auto;
+  }
+
+}
+
+// Level 1
+.layout-main-navigation .menu--expanded .menu-item--expanded ul.menu-level-1 {
+  top: 100%;
+  left: 0;
+}
+
+// Block Expanded
+.layout-header .block-expanded {
+
+  .block-content {
+    top: 100%;
+    left: 0;
+  }
+
+  &.block-expanded--right .block-content {
+      left: auto;
+      right: 0;
+  }
+
+  &.block-expanded--full {
+    position: static;
+
+    .block-content {
+      right: 0;
+    }
+
+  }
+
+}
+
+// Submenu
+.layout-main-navigation .menu--expanded .menu-item--expanded ul .menu--submenu {
+  top: 0;
+  left: 100%;
+}
+
+// Submenu & Block Content
+.layout-main-navigation .menu--expanded .menu--submenu,
+.layout-header .block-expanded--main-navigation .block-content {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: z(z3);
+  transition: opacity .5s;
+}
+
+// JS Active Trail
+.layout-main-navigation .menu--expanded .menu-item--expanded.js-active-trail > .menu--submenu,
+.layout-header .block-expanded--main-navigation.js-active-trail > .block-content {
+  height: auto;
+  overflow: visible;
+  visibility: visible;
+  opacity: 1;
+}
+
+// No js
+.no-js .layout-main-navigation .menu--expanded .menu-item--expanded {
+
+  .menu--submenu {
+    display: none;
+  }
+
+  &:hover > .menu--submenu {
+    display: block;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+  }
+
+}

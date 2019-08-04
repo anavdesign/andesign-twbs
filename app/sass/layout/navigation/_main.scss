@@ -1,0 +1,16 @@
+/**
+ * @file
+ * Main Navigation
+ */
+
+.layout-main-navigation {
+
+  @include mobile {
+    display: none!important;
+  }
+
+  .menu--main {
+    display: flex;
+  }
+
+}

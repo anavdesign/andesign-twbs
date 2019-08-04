@@ -1,0 +1,60 @@
+/**
+ * @file
+ * Slices
+ */
+
+.field--name-field-slice {
+  margin: 0;
+}
+
+.slice-item {
+  margin: 0;
+  background-position: center;
+  overflow: hidden;
+}
+
+.slice-content {
+  margin: 0;
+  position: relative;
+  z-index: z(z1);
+  overflow: hidden;
+}
+
+// Title
+.slice-heading {
+  font-family: $font-family-header;
+  text-transform: uppercase;
+  @extend .text-size-large;
+}
+
+h2.slice-heading {
+  text-align: center;
+  @extend .text-size-larger;
+}
+
+// Full Width
+.slice-full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+// Full Height
+.slice-full-height .slice-content {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .slice-content-container,
+  > .slice-content-wrapper {
+    flex: 1 0 100%;
+  }
+
+  @include ie {
+    display: block;
+    min-height: none;
+  }
+
+}

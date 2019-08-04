@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Line Height
+ */
+
+@each $height, $value in $line-height {
+
+  .#{$height} {
+    line-height: $value;
+  }
+
+  @each $bp-name, $bp-value in $breakpoint {
+
+    @include minWidth($bp-name) {
+
+      .#{$height}-#{$bp-name} {
+        line-height: $value;
+      }
+
+    }
+
+  }
+
+}

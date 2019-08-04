@@ -1,0 +1,39 @@
+/**
+ * @file
+ * Base Color Map
+ */
+
+// Include Color Map Variables
+@import '../varialbes/color-maps';
+
+// Include Create Color Map Function
+@import '../functions/create-color-map';
+
+$color-base: (
+  black     : $black,
+  white     : $white,
+  gray      : $gray,
+  red       : $red,
+  orange    : $orange,
+  yellow    : $yellow,
+  lime      : $lime,
+  green     : $green,
+  turquoise : $turquoise,
+  cyan      : $cyan,
+  cobalt    : $cobalt,
+  blue      : $blue,
+  violet    : $violet,
+  magenta   : $magenta,
+  crimson   : $crimson,
+);
+
+$palette-base: ();
+
+@each $key,
+$value in $color-base {
+  $map: ();
+  $map: map-merge($map, ($key: create-color-map($value, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%)));
+  $palette-base: map-merge($palette-base, $map);
+}
+
+// @debug $palette-base;

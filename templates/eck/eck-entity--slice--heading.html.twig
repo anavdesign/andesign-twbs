@@ -1,0 +1,43 @@
+{# Background Color #}
+{% if content.field_background_color[0] is not empty %}
+  {% set slice_background_color = true %}
+{% endif %}
+
+{# Text Color #}
+{% if content.field_text_color[0] is not empty %}
+  {% set slice_text_color = true %}
+{% endif %}
+
+{# Container Size #}
+{% if content.field_container_size[0] is not empty %}
+  {% set slice_container_size = true %}
+{% endif %}
+
+{# Content Container #}
+{% if slice_background_color or slice_container_size %}
+  {% set slice_content_container = true %}
+{% endif %}
+
+{% set classes = [
+'eck-entity',
+'slice-item',
+'slice-heading',
+slice_content_container ? 'slice-full-width',
+] %}
+
+{% set slice_content_attribute = create_attribute() %}
+
+{% set slice_content_classes = [
+'slice-content',
+(render_var(content.field_class_name.0)),
+(render_var(content.field_spacing_top.0)),
+(render_var(content.field_spacing_bottom.0)),
+] %}
+
+<div {{ attributes.setAttribute('id', render_var(content.field_slice_id.0)|clean_class).addClass(classes) }}>
+  <div {{ slice_content_attribute.addClass(slice_content_classes) }}{% if slice_background_color %} style="background-color: {{ content.field_background_color.0 }};"{% endif %}>
+    <div class="slice-content-container{% if slice_content_container %}{% if slice_container_size %} {{ content.field_container_size.0 }}{% else %} container{% endif %}{% endif %}">
+      <h1 class="slice-heading"{% if slice_text_color %} style="color:{{ content.field_text_color.0 }}"{% endif %}><span>{{ content.field_heading.0 }}</span></h1>
+    </div>
+  </div>
+</div>

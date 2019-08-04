@@ -1,0 +1,100 @@
+/**
+ * @file
+ * Mobile Navigation Content
+ */
+
+.layout-mobile-navigation-content {
+
+  // Gutters
+  padding-right: $menu-mobile-content-gutters;
+  padding-left: $menu-mobile-content-gutters;
+
+  // Block Header
+  .block-has-title .block-title h2 {
+    margin: 0;
+    padding: 15px 10px 10px;
+    font-size: .8em;
+    color: $menu-mobile-contetn-header-color;
+    text-transform: uppercase;
+  }
+
+  // Menus
+  ul.menu-level-0 {
+    margin: 0;
+    background-color: $menu-mobile-content-menu-background-color;
+  }
+
+  // Menu Item
+  li.menu-item {
+    display: block;
+    padding: 0;
+  }
+
+}
+
+// Menu Links
+.layout-mobile-navigation-content .menu-link {
+  display: flex;
+  align-items: center;
+  font-family: $font-family-navigation;
+  font-size: 25px;
+  text-transform: uppercase;
+  line-height: 1.125;
+  @include linkColor($menu-mobile-content-link-color,$menu-mobile-content-link-color-hover);
+
+  span:first-child {
+    flex: 1;
+  }
+
+  span {
+    padding: $menu-mobile-content-link-padding;
+  }
+
+}
+
+// Active Trail
+.layout-mobile-navigation-content .active-trail > .menu-link {
+  background-color: $menu-mobile-content-link-background-color-active;
+}
+
+// Borders
+@if ($menu-mobile-content-link-border-width != null) {
+
+  .layout-mobile-navigation-content .menu-item {
+    border-top: $menu-mobile-content-link-border-width solid $menu-mobile-content-link-border-color;
+  }
+
+}
+
+.layout-mobile-navigation-content .menu-level-0 .menu-item-level-0:first-child {
+  border-top: none;
+}
+
+// Submenus
+.layout-mobile-navigation-content .menu-level-0 .menu--submenu {
+  display: none;
+  margin: 0;
+  margin-left: $menu-mobile-content-submenu-left-gutter;
+}
+
+// Chevron
+.layout-mobile-navigation-content {
+
+  .menu-link-chevron {
+    display: flex;
+    align-items: center;
+    transition: transform .2s;
+
+    svg {
+      width: $menu-mobile-content-chevron-size;
+      height: $menu-mobile-content-chevron-size;
+      fill: $menu-mobile-content-chevron-color;
+    }
+
+  }
+
+  .js-is-active > .menu-link-chevron {
+    transform: rotate(180deg);
+  }
+
+}

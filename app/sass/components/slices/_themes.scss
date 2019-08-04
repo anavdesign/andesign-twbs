@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Slice Themes
+ */
+
+.slice-theme {
+
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  // }
+
+  // .slice-content {
+  //   position: relative;
+  // }
+
+}
+
+// Light Overlay
+.slice-theme--light {
+
+  // &:after {
+  //   @include hsla(background-color, 0, 0%, 100%, .5);
+  // }
+
+}
+
+// Dark Overlay
+.slice-theme--dark {
+
+  // &:after {
+  //   @include hsla(background-color, 0, 0%, 0%, .6);
+  // }
+
+  // .slice-title {
+  //   color: $white;
+  // }
+
+}

@@ -1,0 +1,20 @@
+/**
+ * @file
+ * Image
+ */
+
+img {
+  border: 0;
+}
+
+// Cover
+.img-cover {
+  background-position: center;
+  background-size: cover;
+}
+
+// Responsive Images
+.layout-page img {
+  max-width: 100%;
+  height: auto;
+}

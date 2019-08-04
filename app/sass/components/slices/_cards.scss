@@ -1,0 +1,36 @@
+/**
+ * @file
+ * Cards Slice
+ */
+
+// Slice Column Cards
+.slice-card-container {
+
+  .slice-column {
+
+    .slice-heading {
+      text-align: left;
+    }
+
+    h2.slice-heading {
+      @extend .text-size-small;
+    }
+
+    h3.slice-heading {
+      @extend .text-size-smaller;
+    }
+
+  }
+
+  // Body
+  .slice-column-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Content
+  .slice-column-content {
+    flex: 1 0 auto;
+  }
+
+}

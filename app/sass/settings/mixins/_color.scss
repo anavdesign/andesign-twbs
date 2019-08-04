@@ -1,0 +1,16 @@
+/**
+ * @file
+ * Color
+ */
+
+// HSLA
+@mixin hsla($property, $hue, $saturation, $lightness, $opacity: 1) {
+  #{$property}: hsl($hue, $saturation, $lightness);
+  #{$property}: hsla($hue, $saturation, $lightness, $opacity);
+}
+
+// RGBA
+@mixin rgba($property, $red, $green, $blue, $opacity: 1) {
+  #{$property}: rgb($red, $green, $blue);
+  #{$property}: rgba($red, $green, $blue, $opacity);
+}

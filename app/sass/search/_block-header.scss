@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Header Search Block
+ */
+
+.layout-header .block-search div.block-content {
+  display: flex!important;
+  justify-content: center;
+  padding: 50px;
+
+  .search-form-wrapper {
+    width: 40vw;
+    border-bottom: 1px solid palette(gray, l3);
+  }
+
+  .form-item input {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+}

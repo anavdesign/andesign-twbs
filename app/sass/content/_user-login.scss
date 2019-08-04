@@ -1,0 +1,44 @@
+/**
+ * @file
+ * Super Login
+ */
+
+.user-login-form,
+.user-pass {
+  display: table;
+  margin: 0 auto;
+
+  .login-title {
+    padding: $spacer;
+    line-height: 1.125;
+  }
+
+  .form-item {
+    width: 100%;
+    padding: 0 $spacer;
+
+    input {
+      width: 100%;
+      max-width: none;
+    }
+
+  }
+
+}
+
+#user-pass,
+#user-login-form  {
+
+  .form-actions {
+    margin: 0 $spacer;
+    text-align: center;
+  }
+
+}
+
+#user-login-form .actions-suffix {
+  float: none;
+  position: static;
+  text-align: center;
+  margin: $spacer;
+}

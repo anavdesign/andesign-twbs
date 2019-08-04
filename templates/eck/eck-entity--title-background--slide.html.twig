@@ -1,0 +1,26 @@
+{# Background Color #}
+{% if content.field_overlay_color[0] is not empty %}
+  {% set slice_overlay_color = true %}
+  {% set overlay_color = content.field_overlay_color.0|render|striptags|trim(')')|slice(5)|split(',') %}
+  {% set red = overlay_color[0] %}
+  {% set green = overlay_color[1] %}
+  {% set blue = overlay_color[2] %}
+  {% set opacity = overlay_color[3] %}
+{% endif %}
+
+{# Text Color #}
+{% if content.field_text_color[0] is not empty %}
+  {% set slice_text_color = true %}
+{% endif %}
+
+{% set classes = [
+'eck-entity',
+'title-background',
+'title-background-slide',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ content.field_image }}
+  <h1 class="page-title"{% if slice_overlay_color %} style="background-image: linear-gradient(to bottom, rgba({{red}}, {{green}}, {{blue}}, 0.1), rgba({{red}}, {{green}}, {{blue}}, {{opacity}}));"{% endif %}>
+    <span{% if slice_text_color %} style="color:{{ content.field_text_color.0 }};"{% endif %}>{{ drupal_title() }}</span>
+  </h1>
+</div>

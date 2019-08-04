@@ -1,0 +1,66 @@
+/**
+ * @file
+ * Site Branding
+ */
+
+.block-site-branding a {
+  display: block;
+  text-decoration: none;
+}
+
+.site-branding__logo img {
+  height: 100%;
+  width: auto;
+}
+
+.site-branding__content {
+  margin-left: $spacer;
+}
+
+// Header
+.layout-header {
+
+  // Logo
+  .site-branding__logo {
+    height: 70px;
+    padding: 15px 0;
+  }
+
+  // Name
+  .site-branding__name a {
+    font-family: $font-family-header;
+    font-size: 25px;
+    line-height: 1.12;
+    color: palette(white);
+    text-transform: uppercase;
+  }
+
+}
+
+/*
+ * Mobile Header
+ */
+.layout-mobile-navigation {
+
+  .block-site-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Logo
+  .site-branding__logo {
+    height: 100px;
+  }
+
+  .site-branding__content {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  // Name
+  .site-branding__name {
+    font-size: 25px;
+  }
+
+}

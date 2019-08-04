@@ -1,0 +1,86 @@
+/**
+ * @file
+ * Collapse List
+ */
+
+.collapse-list {
+  list-style: none;
+  padding: 0;
+  border: 2px solid $base-border-color;
+
+  >li {
+
+    > h2, div {
+      padding: $spacer;
+
+      @include desktop {
+        padding: $spacer * 1.5;
+      }
+
+      @include minWidth(lg) {
+        padding: $spacer * 2;
+      }
+
+    }
+
+    + li {
+      border-top: 2px solid $base-border-color;
+    }
+
+    > h2 {
+      background-color: palette(gray, l5);
+      font-size: 1.25em;
+      font-weight: 900;
+    }
+
+  }
+
+}
+
+/* Collapse Content */
+.js-collapse-list__content {
+  display: none;
+}
+
+/* Collapse Trigger */
+.js-collapse-list__trigger {
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  svg {
+    transition: transform 0.3s ease;
+    .js-is-active> & {
+      transform: rotate(180deg);
+    }
+
+  }
+
+  /* Active Trigger */
+  .js-is-active > & {
+    border-bottom: 1px solid $base-border-color;
+  }
+
+}
+
+.js-collapse-list__trigger-text {
+  flex: 1;
+}
+
+/* Print */
+@media print {
+
+  .js-collapse-list__trigger {
+    border-bottom: 1px solid $base-border-color;
+
+    .js-svg {
+      display: none!important;
+    }
+
+  }
+
+  .js-collapse-list__content {
+    display: block!important;
+  }
+
+}

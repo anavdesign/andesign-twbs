@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Grid
+ */
+
+// Views Grid
+ul.row,
+.item-list ul.row {
+  @extend .row;
+  list-style: none;
+}
+
+.item-list ul.row li {
+  margin: 0;
+  padding-right: 15px;
+  padding-left: 15px;
+}

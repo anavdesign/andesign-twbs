@@ -1,0 +1,25 @@
+{#
+  Add content_region class
+  if the bottom content contains multiple regions
+#}
+{% if (page.content_bottom_first and page.content_bottom_second) or (page.content_bottom_first and page.content_bottom_third) or (page.content_bottom_second and page.content_bottom_third) %}
+  {% set content_bottom_regions = true %}
+{% else %}
+  {% set content_bottom_regions = false %}
+{% endif %}
+
+{% if page.content_bottom_first or page.content_bottom_second or page.content_bottom_third %}
+  <div id="layout-content-bottom" class="layout-content-bottom{% if not container_content_bottom %} container-none{% endif %}">
+    {% if container_content_bottom %}
+      <div class="container">
+    {% endif %}
+      <div class="layout-content-bottom__content{% if content_bottom_regions %} content-bottom__regions{% endif %}">
+        {{ page.content_bottom_first }}
+        {{ page.content_bottom_second }}
+        {{ page.content_bottom_third }}
+      </div> {# /.layout-content-bottom__content #}
+    {% if container_content_bottom %}
+      </div> {# /.container #}
+    {% endif %}
+  </div> {# /.layout-content-bottom #}
+{% endif %}

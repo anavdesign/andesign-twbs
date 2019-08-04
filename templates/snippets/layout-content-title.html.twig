@@ -1,0 +1,24 @@
+{# Twig Tweak: Chack if view has result #}
+{% set view_title_background = drupal_view_result('title_background', 'embed_title_background')|length %}
+
+{# Disable Page Title on Front Page #}
+{% if not is_front %}
+  {% if page.content_title %}
+    <div id="layout-content-title" class="layout-content-title{% if not container_content_title %} container-none{% endif %}{% if view_title_background > 0 %} layout-content-title--background{% endif %}">
+      {% if view_title_background > 0 %}
+        {# Embed Title Background View #}
+        {{ drupal_view('title_background', 'embed_title_background') }}
+      {% else %}
+        {% if container_content_title %}
+          <div class="container">
+        {% endif %}
+          <div class="content-title__content">
+            {{ page.content_title }}
+          </div> {# /.content-title__content #}
+        {% if container_content_title %}
+          </div> {# /.container #}
+        {% endif %}
+      {% endif %}
+    </div> {# /.layout-content-title #}
+  {% endif %}
+{% endif %}

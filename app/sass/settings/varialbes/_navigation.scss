@@ -1,0 +1,72 @@
+/**
+ * @file
+ * Navigation
+ */
+
+/**
+ * Base
+ */
+$menu-base-border-width                           : 1px;
+$menu-base-border-color                           : $black;
+
+/**
+ * Main
+ */
+
+// Parent
+$menu-main-parent-padding                         : 5px 12px;
+$menu-main-parent-link-color                      : $white;
+$menu-main-parent-link-color-hover                : $menu-main-parent-link-color;
+
+// Submenu
+$menu-main-submenu-padding                        : 10px 12px;
+$menu-main-submenu-link-color                     : $black;
+$menu-main-submenu-background-color               : $white;
+$menu-main-submenu-link-color-hover               : $menu-main-submenu-link-color;
+$menu-main-submenu-border-width                   : $menu-base-border-width;
+$menu-main-submenu-border-color                   : $menu-base-border-color;
+
+// Block Expanded
+$menu-main-block-padding                          : 50px;
+$menu-main-block-background-color                 : $menu-main-submenu-background-color;
+$menu-main-block-border-width                     : $menu-main-submenu-border-width;
+$menu-main-block-border-color                     : $menu-main-submenu-border-color;
+$menu-main-block-toggle-button-padding            : $menu-main-submenu-padding;
+$menu-main-block-toggle-button-size               : 20px;
+$menu-main-block-toggle-button-color              : $menu-main-parent-link-color;
+
+/**
+ * Mobile
+ */
+
+$menu-mobile-width                                : 90vw;
+$menu-mobile-gutter                               : $spacer;
+$menu-mobile-background-color                     : $black;
+$menu-mobile-color                                : $white;
+
+// Overlay
+$menu-mobile-overlay-background-color             : $menu-mobile-background-color;
+$menu-mobile-overlay-opacity                      : .8;
+
+// Toggle Button
+$menu-mobile-toggle-position                      : 15px;
+$menu-mobile-toggle-color                         : $menu-mobile-color;
+$menu-mobile-toggle-size                          : 20px;
+
+// Header
+$menu-mobile-header-padding                       : $menu-mobile-gutter;
+$menu-mobile-header-background-color              : null;
+
+// Content
+$menu-mobile-content-gutters                      : $menu-mobile-gutter;
+$menu-mobile-content-menu-background-color        : $primary;
+$menu-mobile-contetn-header-color                 : $menu-mobile-color;
+$menu-mobile-content-link-padding                 : 18px 10px;
+$menu-mobile-content-link-color                   : $menu-mobile-color;
+$menu-mobile-content-link-color-hover             : $menu-mobile-content-link-color;
+$menu-mobile-content-link-background-color-active : palette(primary, d1);
+$menu-mobile-content-link-border-width            : 1px;
+$menu-mobile-content-link-border-color            : palette(primary, d2);
+$menu-mobile-content-submenu-left-gutter          : 20px;
+$menu-mobile-content-chevron-size                 : 25px;
+$menu-mobile-content-chevron-color                : $menu-mobile-color;

@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Alerts Color Map
+ */
+
+// Include Color Map Variables
+@import '../varialbes/color-maps';
+
+// Include Create Color Map Function
+@import '../functions/create-color-map';
+
+$color-alerts: (
+  status  : $status,
+  warning : $warning,
+  error   : $error,
+);
+
+$palette-alerts: ();
+
+@each $key,
+$value in $color-alerts {
+  $map: ();
+  $map: map-merge($map, ($key: create-color-map($value, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%)));
+  $palette-alerts: map-merge($palette-alerts, $map);
+}
+
+// @debug $palette-alerts;

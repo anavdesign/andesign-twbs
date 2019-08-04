@@ -1,0 +1,78 @@
+{# Background Color #}
+{% if content.field_background_color[0] is not empty %}
+  {% set slice_background_color = true %}
+{% endif %}
+
+{# Text Color #}
+{% if content.field_text_color[0] is not empty %}
+  {% set slice_text_color = true %}
+{% endif %}
+
+{# Background Image #}
+{% if content.field_background_image[0] is not empty %}
+  {% set slice_background_image = true %}
+  {# Media Field #}
+  {% set slice_background_image_url = content.field_background_image|render|striptags|trim %}
+  {# Image Field #}
+  {# {% set slice_background_image_url = file_url(content.field_background_image['#items'].entity.uri.value | image_style('s1600')) %} #}
+{% endif %}
+
+{# Container Size #}
+{% if content.field_container_size[0] is not empty %}
+  {% set slice_container_size = true %}
+{% endif %}
+
+{# Content Container #}
+{% if slice_background_color or slice_background_image or slice_container_size %}
+  {% set slice_content_container = true %}
+{% endif %}
+
+{# Full Height Slice #}
+{% if '1' in content.field_full_height[0] %}
+  {% set slice_full_height = true %}
+{% endif %}
+
+{# Parallax #}
+{% if '1' in content.field_parallax[0] and slice_background_image %}
+  {% set slice_parallax = true %}
+{% endif %}
+
+{# Background Image Cover #}
+{% if '1' in content.field_background_image_cover[0] and slice_background_image and not slice_parallax %}
+  {% set slice_background_cover = true %}
+{% endif %}
+
+{% set classes = [
+'eck-entity',
+'slice-item',
+'slice-views',
+slice_content_container ? 'slice-full-width',
+slice_full_height ? 'slice-full-height',
+slice_parallax ? 'slice-parallax',
+slice_background_cover ? 'img-cover',
+slice_background_cover ? 'img-cover',
+] %}
+
+{% set slice_content_attribute = create_attribute() %}
+
+{% set slice_content_classes = [
+'slice-content',
+(render_var(content.field_class_name.0)),
+(render_var(content.field_spacing_top.0)),
+(render_var(content.field_spacing_bottom.0)),
+] %}
+
+<div {{ attributes.setAttribute('id', render_var(content.field_slice_id.0)|clean_class).addClass(classes) }}{% if slice_parallax %} data-parallax="scroll" data-image-src="{{ slice_background_image_url }}"{% else %}{% if slice_background_image %} style=" background-image: url({{ slice_background_image_url }});"{% endif %}{% endif %}>
+  <div {{ slice_content_attribute.addClass(slice_content_classes) }}{% if slice_background_color %} style="background-color: {{ content.field_background_color.0 }};"{% endif %}>
+    <div class="slice-content-container{% if slice_content_container %}{% if slice_container_size %} {{ content.field_container_size.0 }}{% else %} container{% endif %}{% endif %}">
+      {% if content.field_heading|render %}
+        <h2 class="slice-heading"{% if slice_text_color %} style="color:{{ content.field_text_color.0 }}"{% endif %}><span>{{ content.field_heading.0 }}</span></h2>
+      {% endif %}
+      {{ content.field_views }}
+    </div>
+  </div>
+</div>
+
+{% if slice_parallax %}
+  {{ attach_library('andesign_twbs/parallax') }}
+{% endif %}

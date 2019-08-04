@@ -1,0 +1,22 @@
+{
+  "name": "andesign-twbs",
+  "authors": [
+    "Adrian Navarrete <andesign@mac.com>"
+  ],
+  "description": "andesign Bootstrap Theme",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "enquire": "^2.1.6",
+    "svg4everybody": "^2.1.9",
+    "jquery-hoverintent": "^1.9.0",
+    "magnific-popup": "^1.1.0"
+  },
+  "devDependencies": {}
+}

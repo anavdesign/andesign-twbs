@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Sticky Header
+ */
+
+// Admin Toolbar Offset
+.toolbar-fixed .layout-header {
+  top: 39px!important;
+}
+
+.toolbar-horizontal.toolbar-tray-open .layout-header {
+  top: 78px!important;
+}
+
+@include maxWidth(609px) {
+
+  .toolbar-vertical .layout-header {
+    position: static!important;
+  }
+
+  .toolbar-vertical.layout-sticky-header .layout-page {
+    padding-top: 0!important;
+  }
+
+}

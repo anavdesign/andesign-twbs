@@ -1,0 +1,41 @@
+/**
+ * @file
+ * Main Navigation Icons
+ */
+
+// Toggle Buttons
+.layout-header .toggle-button svg {
+  fill: $menu-main-parent-link-color;
+}
+
+// Chevrons
+.layout-main-navigation .menu--expanded-icon .menu-link-chevron {
+  padding-left: 0!important;
+  line-height: 1;
+}
+
+// Parent Chevrons
+.layout-main-navigation .menu--expanded-icon .menu-link-level-0 {
+
+  .menu-link-chevron svg {
+    fill: $menu-main-parent-link-color;
+  }
+
+  &:hover .menu-link-chevron svg {
+    fill: $menu-main-parent-link-color-hover;
+  }
+
+}
+
+// Submenu Chevrons
+.layout-main-navigation .menu--expanded-icon .menu-level-1 {
+
+  .menu-link-chevron svg {
+    transform: rotate(270deg);
+  }
+
+  .menu-link:hover .menu-link-chevron svg {
+    fill: $menu-main-submenu-link-color-hover;
+  }
+
+}

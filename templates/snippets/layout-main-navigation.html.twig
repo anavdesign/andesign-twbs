@@ -1,0 +1,11 @@
+{% if page.navigation %}
+  <div id="layout-main-navigation" class="layout-main-navigation layout-header__item{% if not container_navigation %} container-none{% endif %}">
+    {% if container_navigation %}
+      <div class="container">
+    {% endif %}
+      {{ page.navigation }}
+    {% if container_navigation %}
+      </div>
+    {% endif %}
+  </div> {# /.layout-main-navigation #}
+{% endif %}

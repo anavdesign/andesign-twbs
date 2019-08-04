@@ -1,0 +1,51 @@
+/**
+ * @file
+ * Drupal Tabs.
+ */
+
+.tabs {
+
+  @at-root div#{&} {
+    margin: 0;
+  }
+
+  @at-root ul#{&} {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+    border-bottom: 1px solid palette(gray, l4);
+  }
+
+  > li {
+    margin-right: 5px; /* LTR */
+
+    [dir="rtl"] & {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+
+  }
+
+  a {
+    color: palette(black);
+    display: block;
+    padding: 0.2em 1em;
+    text-decoration: none;
+    transition: all .3s ease;
+      background-color: palette(gray, l5);
+
+    &.is-active {
+      color: palette(black);
+      background-color: palette(gray, l5);
+    }
+
+    &:focus,
+    &:hover {
+      background-color: palette(gray, l5);
+    }
+
+  }
+
+}

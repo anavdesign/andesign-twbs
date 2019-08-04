@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * @file
+ * Load the site name out of configuration
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\block\Entity\Block;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function andesign_twbs_preprocess_html(&$variables) {
+
+  // Theme path in javascript
+  $variables['#attached']['drupalSettings']['path']['themePath'] = \Drupal::theme()->getActiveTheme()->getPath();
+
+  // Add Node Id Class To Body
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if($node) {
+    $variables['attributes']['class'][] = 'node-' . $node->id();
+  }
+
+  // Show Sidebars
+  $variables['show_sidebars'] = TRUE;
+
+  // Node
+  $node = \Drupal::request()->get('node');
+
+  // Check Content Type in Page Preprocess Hook
+  // https://goo.gl/Gupqa5
+  // https://goo.gl/4iVA11
+  if (isset($node) && $node instanceof NodeInterface) {
+    $node_type = $nodetype = $node->getType();
+    if ($node_type == 'product' or $node_type == 'landing_page') {
+      $variables['attributes']['class'][] = 'layout-landing-page';
+      $variables['show_sidebars'] = FALSE;
+    }
+  }
+
+  // Add Mobile Menu Position Class To Body
+  if (theme_get_setting('mobile_menu_position')) {
+      // $variables['attributes']['class'][] = 'layout-mobile-menu-' . theme_get_setting('mobile_menu_position');
+      $variables['html_attributes']->addClass('layout-mobile-menu-' . theme_get_setting('mobile_menu_position'));
+  }
+
+  // Add Sticky Header Class
+  if (theme_get_setting('sticky_header')) {
+      // $variables['attributes']['class'][] = 'layout-sticky-header';
+      $variables['html_attributes']->addClass('layout-sticky-header');
+  }
+
+  // Node - Add layout-page-header Class if Field has Content
+  if (isset($node) && $node instanceof NodeInterface) {
+    if (($node_type == 'page' or $node_type == 'landing_page') && ($node->hasField('field_page_header') && !$node->get('field_page_header')->isEmpty())) {
+      $variables['attributes']['class'][] = 'layout-page-header';
+    }
+  }
+
+  // Taxonomy Term Body Classes
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+
+    // Add Taxonomy Term ID Body Class
+    $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    $variables['attributes']['class'][] = 'taxonomy-' . $term_id;
+
+    // Taxonomy - Add layout-page-header Class if Field has Content
+    $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+
+    if($term->hasField('field_page_header') && !$term->get('field_page_header')->isEmpty()) {
+      $variables['attributes']['class'][] = 'layout-page-header';
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function andesign_twbs_preprocess_page(array &$variables) {
+
+  // Footer Settings
+  // Define and process copyright text.
+  $copyright_text = theme_get_setting('copyright_text');
+  if (!empty($copyright_text)) {
+    $copyright_text = str_replace('@year', date('Y'), theme_get_setting('copyright_text'));
+    $variables['copyright_text']['#markup'] = $copyright_text;
+  }
+
+  // Sidebar
+  $variables['show_sidebars'] = TRUE;
+
+  // Node
+  $node = \Drupal::request()->get('node');
+
+  // Check Content Type in Page Preprocess Hook
+  // https://goo.gl/Gupqa5
+  // https://goo.gl/4iVA11
+  if (isset($node) && $node instanceof NodeInterface) {
+    $node_type = $nodetype = $node->getType();
+    if ($node_type == 'product' or $node_type == 'landing_page') {
+      $variables['show_sidebars'] = FALSE;
+    }
+  }
+
+  // Get site name and slogan in template
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['site_slogan'] = $config->get('slogan');
+
+  // Site Branding Display Settings
+  $variables['brand_logo'] = theme_get_setting('brand_logo');
+  $variables['brand_name'] = theme_get_setting('brand_name');
+  $variables['brand_slogan'] = theme_get_setting('brand_slogan');
+
+  // Print Logo Path
+  $variables['logo_print'] = \Drupal::request()->getBaseUrl() . '/' . drupal_get_path('theme', 'andesign_twbs') . '/logo-print.png';
+
+  // Layout Containers
+  $variables['container_header'] = theme_get_setting('container_header');
+  $variables['container_navigation'] = theme_get_setting('container_navigation');
+  $variables['container_highlighted'] = theme_get_setting('container_highlighted');
+  $variables['container_content_title'] = theme_get_setting('container_content_title');
+  $variables['container_content_main'] = theme_get_setting('container_content_main');
+  $variables['container_content_bottom'] = theme_get_setting('container_content_bottom');
+  $variables['container_footer_top'] = theme_get_setting('container_footer_top');
+  $variables['container_footer_main'] = theme_get_setting('container_footer_main');
+  $variables['container_footer_bottom'] = theme_get_setting('container_footer_bottom');
+
+  // Sticky Header
+  $variables['sticky_header'] = theme_get_setting('sticky_header');
+
+  // Scroll to Top
+  $variables['scroll_top'] = theme_get_setting('scroll_top');
+
+  // Viewport Size
+  $variables['viewport_size'] = theme_get_setting('viewport_size');
+
+}
+
+/**
+ * Implements hook__suggestions_HOOK_alter().
+ */
+function andesign_twbs_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+
+  // Extra template name suggestions for main-menus based on regions
+  // https://www.drupal.org/node/2894599
+  if (!empty($variables['elements']['#id'])) {
+    $block = Drupal\block\Entity\Block::load($variables['elements']['#id']);
+    $suggestions[] = 'block__' . $block->getRegion();
+    $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
+  }
+  return $suggestions;
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function andesign_twbs_preprocess_block(&$variables) {
+
+  // Pass block region value to content so this can be used in
+  // MYTHEME_theme_suggestions_menu_alter.
+  if (isset($variables['elements']['#id'])) {
+    $region = Block::load($variables['elements']['#id'])->getRegion();
+    $variables['content']['#attributes']['region'] = $region;
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function andesign_twbs_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+
+  // Provide region based menu suggestions.
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['menu_name'] . '__' . $variables['attributes']['region'];
+  }
+
+}
+
+/**
+ * Prepares variables for `breadcrumb.html.twig`.
+ */
+function andesign_twbs_preprocess_breadcrumb(&$variables){
+
+  /**
+   * Remove 'Home' from breadcrumb trail based on theme settings variable.
+   * https://goo.gl/M1ukRQ
+   *
+   * Possible values:
+   * - 0: do not remove
+   * - 1: remove
+   * - 2: remove if its the only item
+   */
+  $breadcrumb_trail = theme_get_setting('breadcrumb_trail', 'andesign_twbs');
+  if ($breadcrumb_trail == '1' && count($variables['breadcrumb'])) {
+    array_shift($variables['breadcrumb']);
+  }
+  elseif ($breadcrumb_trail == '2' && count($variables['breadcrumb']) == 1) {
+    array_shift($variables['breadcrumb']);
+  }
+
+}
+
+/**
+ * Remove Search Help Link
+ */
+function andesign_twbs_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id){
+    case 'search_form':
+      unset($form['help_link']);
+      break;
+  }
+}

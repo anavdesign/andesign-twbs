@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Typography Size
+ */
+
+.text-size-largest {
+  @include responsiveType(5.5vw, 35px, 45px, 45px);
+}
+
+.text-size-larger {
+  @include responsiveType(5vw, 30px, 38px, 38px);
+}
+
+.text-size-large {
+  @include responsiveType(4.5vw, 24px, 30px, 30px);
+}
+
+.text-size-small {
+  @include responsiveType(3vw, 20px, 24px, 24px);
+}
+
+.text-size-smaller {
+  @include responsiveType(2.5vw, 18px, 22px, 22px);
+}
+
+.text-size-smallest {
+  @include responsiveType(2vw, 16px, 20px, 20px);
+}

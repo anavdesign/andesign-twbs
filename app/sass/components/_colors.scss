@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Colors
+ */
+
+@each $name, $color in $color-map {
+
+  /* Background */
+  .color-background-#{$name} {
+    background-color: $color!important;
+  }
+
+  /* Text */
+  .color-text-#{$name} {
+    color: $color!important;
+  }
+
+}

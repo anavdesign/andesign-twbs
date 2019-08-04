@@ -1,0 +1,73 @@
+/**
+ * @file
+ * Search Block
+ */
+
+.search-form-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  form {
+      display: flex;
+      position: relative;
+      z-index: 20;
+      flex: 1 0 auto;
+  }
+
+  .form-item, .form-actions {
+    margin: 0;
+  }
+
+}
+
+// Text input Field
+.block-search .form-item {
+  flex: 1 0 auto;
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+    line-height: 1;
+    font-size: 16px;
+    padding: 8px;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+}
+
+// Form Actions
+.block-search .form-actions {
+  width: 40px;
+  overflow: hidden;
+  opacity: 0;
+
+  input {
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+}
+
+// Form Search Button
+.block-search .search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+}

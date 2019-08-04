@@ -1,0 +1,75 @@
+/**
+ * @file
+ * Paragraph
+ */
+
+// With Image
+.slice-layout-image {
+  width: 100%;
+
+  .slice-paragraph-content {
+    width: 100%;
+
+    @include minWidth(md) {
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @include minWidth(xl) {
+      min-height: 500px;
+    }
+
+  }
+
+}
+
+// Image
+.slice-paragraph-image {
+  text-align: center;
+}
+
+.slice-layout-image .slice-paragraph-image {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+
+    @include minWidth(md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50vw;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+    }
+
+  }
+
+}
+
+// Right Image
+.slice-paragraph.slice-layout-image-right {
+
+  @include minWidth(md) {
+    .slice-paragraph-image {
+      order: 2;
+
+      img {
+        left: 0;
+        right: auto;
+      }
+
+    }
+
+    .slice-paragraph-content {
+      order: 1;
+    }
+
+  }
+
+}

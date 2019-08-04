@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Browser Upgrade
+ */
+
+.layout-browser-upgrade {
+  padding: 20px 0;
+  background-color: #ff0000;
+  color: palette(white);
+  text-align: center;
+  font-size: 1.5em;
+
+  a {
+    color: palette(yellow);
+  }
+
+  p {
+    margin: 0;
+  }
+
+}

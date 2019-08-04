@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Slices
+ */
+
+// Slice Spacer
+$slice-spacer: 1rem;
+$slice-spacers: ();
+$slice-spacers: map-merge(
+  (
+    1: ($slice-spacer * .5),
+    2: ($slice-spacer * 1),
+    3: ($slice-spacer * 1.5),
+    4: ($slice-spacer * 2),
+    5: ($slice-spacer * 2.5),
+    6: ($slice-spacer * 3),
+    7: ($slice-spacer * 3.5),
+    8: ($slice-spacer * 4),
+    9: ($slice-spacer * 4.5)
+  ),
+  $slice-spacers
+);

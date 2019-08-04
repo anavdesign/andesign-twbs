@@ -1,0 +1,175 @@
+/**
+ * @file
+ * Actions
+ */
+
+ul.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  cursor: default;
+  margin: 0 0 ($action-spacer * .75);
+  padding: 0;
+
+  > li {
+    margin-top: $action-spacer *.25 ;
+    margin-right: $action-spacer ;
+    margin-bottom: $action-spacer *.25 ;
+  }
+
+}
+
+ul.actions--left,
+ul.actions--center,
+ul.actions--right {
+  flex-direction: row;
+  align-items: center;
+}
+
+// Left
+ul.actions--left {
+  justify-content: flex-start;
+
+  > li {
+    margin-right: $action-spacer;
+    margin-left: 0;
+  }
+
+}
+
+// Center
+ul.actions--center {
+  justify-content: center;
+
+  > li {
+    margin-right: $action-spacer * .5;
+    margin-left: $action-spacer * .5;
+  }
+
+}
+
+// Right
+ul.actions--right {
+  justify-content: flex-end;
+
+  > li {
+    margin-right: 0 ;
+    margin-left: $action-spacer;
+  }
+
+}
+
+
+
+@each $name, $size in $breakpoint {
+
+  @media (min-width: $size) {
+
+    ul.actions--#{$name}-left,
+    ul.actions--#{$name}-center,
+    ul.actions--#{$name}-right {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    // Left
+    ul.actions--#{$name}-left {
+      justify-content: flex-start;
+
+      > li {
+        margin-right: $action-spacer;
+        margin-left: 0;
+      }
+
+    }
+
+    // Center
+    ul.actions--#{$name}-center {
+      justify-content: center;
+
+      > li {
+        margin-right: $action-spacer * .5;
+        margin-left: $action-spacer * .5;
+      }
+
+    }
+
+    // Right
+    ul.actions--#{$name}-right {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      > li {
+        margin-right: 0 ;
+        margin-left: $action-spacer;
+      }
+
+    }
+
+  }
+
+}
+
+// Vertical
+ul.actions--vertical {
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: $action-spacer * .5;
+
+  > li {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: $action-spacer * .5;
+  }
+
+  &.actions--vertical-left {
+    text-align: left;
+  }
+
+  &.actions--vertical-center {
+    text-align: center;
+  }
+
+  &.actions--vertical-right {
+    text-align: right;
+  }
+
+}
+
+@each $name, $size in $breakpoint {
+
+  @media (min-width: $size) {
+
+    ul.actions--#{$name}-vertical {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: $action-spacer * .5;
+
+      > li {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: $action-spacer * .5;
+      }
+
+
+      &.actions--#{$name}-vertical-left {
+        text-align: left;
+      }
+
+      &.actions--#{$name}-vertical-center {
+        text-align: center;
+      }
+
+      &.actions--#{$name}-vertical-right {
+        text-align: right;
+      }
+
+    }
+
+  }
+
+}

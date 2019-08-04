@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Header
+ */
+
+// Header Content
+.layout-header .layout-header__content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include mobile {
+    align-items: center;
+  }
+
+}
+
+// Site Branding
+.layout-header .site-branding .block-site-branding  {
+  display: flex;
+  align-items: center;
+}
+
+// Toggle Button
+.layout-header .toggle-button {
+  display: flex;
+  align-items: center;
+}
+
+@include mobile {
+
+  .region-navigation,
+  .region-header-right {
+    display: none;
+  }
+
+}
+
+@include desktop {
+
+  .layout-header .mobile-menu-open {
+    display: none;
+  }
+
+}

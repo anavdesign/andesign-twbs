@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Container
+ */
+
+%container-margin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%container-padding{
+  padding-right: $layout-gutter;
+  padding-left: $layout-gutter;
+}
+
+.container-none {
+  @extend %container-padding;
+}
+
+.container {
+  @extend %container-margin;
+  @extend %container-padding;
+  max-width: $container-max;
+}
+
+@each $size in $container-sizes {
+
+  .container-#{$size} {
+    @extend %container-margin;
+    @extend %container-padding;
+    max-width: $size * 1px;
+  }
+
+}
+
+// Full Width
+.container-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}

@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+<div id="layout-page-wrapper" class="layout-page-wrapper">
+
+  <div id="layout-page" class="layout-page">
+    {% include directory ~ '/templates/snippets/layout-header.html.twig' %}
+
+    <!--[if lt IE 8]>
+      <div id="layout-browser-upgrade" class="layout-browser-upgrade">
+        <div class="container">
+          <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">Upgrade&nbsp;Your&nbsp;Browser</a> to improve your&nbsp;experience.</p>
+        </div>
+      </div>
+    <![endif]-->
+
+    {% include directory ~ '/templates/snippets/layout-highlighted.html.twig' %}
+    {% include directory ~ '/templates/snippets/layout-content-title.html.twig' %}
+    {% include directory ~ '/templates/snippets/layout-content-main.html.twig' %}
+    {% include directory ~ '/templates/snippets/layout-content-bottom.html.twig' %}
+    {% include directory ~ '/templates/snippets/layout-footer.html.twig' %}
+
+  </div> {# /.page #}
+
+  {% include directory ~ '/templates/snippets/layout-mobile-navigation.html.twig' %}
+
+</div> {# /.page-wrapper #}
+
+{# Scroll to top Button #}
+{% if scroll_top %}
+  {% include directory ~ '/templates/snippets/scroll-top.html.twig' %}
+{% endif %}
+
+{# Display Viewport Sizes for Theme Development #}
+{% if viewport_size %}
+  {% include directory ~ '/templates/snippets/viewport-size.html.twig' %}
+{% endif %}
+
+{# Stick Header on Page Scroll Library #}
+{% if sticky_header %}
+  {{ attach_library('andesign_twbs/sticky-header') }}
+{% endif %}

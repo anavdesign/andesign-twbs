@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Main Navigation Block Expanded
+ */
+
+.layout-header .toggle-button {
+  padding: $menu-main-block-toggle-button-padding;
+
+  svg {
+    width: $menu-main-block-toggle-button-size;
+    height: $menu-main-block-toggle-button-size;
+  }
+
+}
+
+.layout-header .block-expanded .block-content {
+  padding: $menu-main-block-padding;
+  background-color: $menu-main-block-background-color;
+
+  // Border
+  @if ($menu-main-block-border-width != null) {
+    border: $menu-main-block-border-width solid $menu-main-block-border-color;
+  }
+
+}

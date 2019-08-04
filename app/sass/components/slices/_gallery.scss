@@ -1,0 +1,84 @@
+/**
+ * @file
+ * Gallery
+ */
+
+// Grid
+.slice-gallery-grid .slice-gallery-item {
+
+  a {
+    display: block;
+  }
+
+  img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+
+    @include minWidth(sm) {
+      height: 200px;
+    }
+
+    @include minWidth(md) {
+      height: 250px;
+    }
+
+    @include minWidth(xl) {
+      height: 300px;
+    }
+
+    @include minWidth(xxl) {
+      height: 350px;
+    }
+
+  }
+
+}
+
+// Masonry
+
+.slice-masonry {
+
+  .slice-gallery-items {
+    display: block;
+  }
+
+  .js-grid-sizer,
+  .slice-gallery-item {
+    width: 50%;
+  }
+
+  /* 2 columns */
+  .slice-gallery-item--2x {
+    width: 100%;
+  }
+
+  @include minWidth(sm) {
+
+    .js-grid-sizer,
+    .slice-gallery-item {
+      width: 33%;
+    }
+
+    /* 2 columns */
+    .slice-gallery-item--2x {
+      width: 100%;
+    }
+
+  }
+
+  @include minWidth(lg) {
+
+    .js-grid-sizer,
+    .slice-gallery-item {
+      width: 25%;
+    }
+
+    /* 2 columns */
+    .slice-gallery-item--2x {
+      width: 50%;
+    }
+
+  }
+
+}

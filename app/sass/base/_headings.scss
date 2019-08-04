@@ -1,0 +1,64 @@
+/**
+ * @file
+ * Headings
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+  font-weight: bold;
+  line-height: 1.25;
+  color: $base-body-text-color;
+
+  small {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+h1 {
+  @include responsiveType(5.5vw, 40px, 50px, 50px);
+  line-height: 1.125;
+  small {
+    font-size: 0.6em;
+  }
+}
+
+h2 {
+  @include responsiveType(5vw, 24px, 28px, 28px);
+  small {
+    font-size: 0.6em;
+  }
+}
+
+h3 {
+  @include responsiveType(4.5vw, 20px, 24px, 24px);
+  small {
+    font-size: 0.7em;
+  }
+}
+
+h4 {
+  @include responsiveType(3vw, 18px, 20px, 20px);
+  small {
+    font-size: 0.7em;
+  }
+}
+
+h5 {
+  @include responsiveType(2.5vw, 17px, 19px, 19px);
+  small {
+    font-size: 0.8em;
+  }
+}
+
+h6 {
+  @include responsiveType(2vw, 16px, 18px, 18px);
+  small {
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,80 @@
+/**
+ * @file
+ * Search Page Form
+ */
+
+.layout-main form.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Form Container
+.layout-main form.search-form .container-inline {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  max-width: 800px;
+  border-bottom: 1px solid palette(gray, l3);
+
+  @include minWidth(sm) {
+    width: 70vw;
+  }
+
+}
+
+// Form Item
+.layout-main form.search-form .container-inline .form-item {
+  margin: 0;
+  flex: 1 1 auto;
+
+  label {
+    display: none;
+  }
+
+  input {
+    display: block;
+    height: 60px;
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+}
+
+// Form Submit
+.layout-main form.search-form .container-inline {
+
+  .form-submit {
+    margin: 0;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &:after {
+    content: '';
+    width: 50px;
+    z-index: z(z0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/svg/icons_search.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+  }
+
+}
+
+// Advanced Search
+.layout-main form.search-form .search-advanced {
+  margin-bottom: 0;
+}

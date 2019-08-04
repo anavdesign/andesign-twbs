@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Atmosphere
+ */
+
+// Colors
+$base-body-background-color        : $white;
+$base-body-text-color              : palette(gray, d1);
+$base-border-color                 : $tertiary;
+
+// Header
+$base-header-background-color      : $black;
+$base-header-link-color            : $primary;
+$base-header-link-color-hover      : palette(primary, d2);
+
+// Main Content
+$base-main-background-color        : $white;
+
+// Footer
+$base-footer-background-color      : $black;
+
+// Link Color
+$base-link-color                   : $primary;
+$base-link-color-hover             : darken($primary, 15%);
+$base-link-color-active            : $base-link-color-hover;

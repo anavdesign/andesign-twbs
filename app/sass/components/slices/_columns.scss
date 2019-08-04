@@ -1,0 +1,35 @@
+/**
+ * @file
+ * Columns Slice
+ */
+
+.slice-column {
+  margin-top: $layout-gutter * .5;
+  margin-bottom: $layout-gutter * .5;
+  display: flex;
+}
+
+.slice-column-item {
+  flex: 1 0 100%;
+  width: 100%;
+
+  [class*="container"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+}
+
+// Button
+.slice-column-button {
+  margin-top: 15px;
+}
+
+// Header Color
+.slice-column-container {
+
+  h2, h3, h4, h5, h6 {
+    color: inherit;
+  }
+
+}

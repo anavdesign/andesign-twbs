@@ -1,0 +1,21 @@
+{# Container Size #}
+{% if content.field_container_size[0] is not empty %}
+  {% set slice_container_size = true %}
+{% endif %}
+
+{% set classes = [
+'eck-entity',
+'slice-content',
+(render_var(content.field_spacing_top.0)),
+(render_var(content.field_spacing_bottom.0)),
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if slice_container_size %}
+  <div class="{{ content.field_container_size.0 }}">
+  {% endif %}
+    {{ content|without('field_container_size', 'field_spacing_top', 'field_spacing_bottom') }}
+  {% if slice_container_size %}
+  </div>
+  {% endif %}
+</div>

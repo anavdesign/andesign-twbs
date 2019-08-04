@@ -1,0 +1,26 @@
+{% if page.site_branding or page.navigation or page.header_right %}
+  <header id="layout-header" class="layout-header{% if not container_header %} container-none{% endif %}" role="banner" aria-label="{{ 'Site header'|t}}">
+    {% if container_header %}
+      <div class="container">
+    {% endif %}
+      <div class="layout-header__content">
+        <div class="site-branding">
+          {{ page.site_branding }}
+        </div>
+        <div class="layout-main-navigation">
+          {{ page.navigation }}
+        </div>
+        <div class="layout-header-right">
+          {{ page.header_right }}
+        </div>
+        <div id="mobile-menu-open" class="mobile-menu-open toggle-button toggle-button--mobile-menu">
+          <svg width="30" height="30" viewBox="0 0 16 16">
+            <use xlink:href="#icon-nav"></use>
+          </svg>
+        </div> {# /#mobile-menu-toggle #}
+      </div> {# /.layout-header__content #}
+    {% if container_header %}
+      </div> {# /.container #}
+    {% endif %}
+  </header>
+{% endif %}

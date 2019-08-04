@@ -1,0 +1,93 @@
+# Global Styles
+global-styles:
+  version: VERSION
+  css:
+    base:
+      css/bootstrap.css: { weight: 1 }
+      css/drupal.css: { weight: 2 }
+      css/base.css: { weight: 3 }
+      '//fonts.googleapis.com/css?family=Open+Sans|Oswald': { type: external, minified: true }
+    layout:
+      css/layout.css: {}
+    component:
+      css/plugins.css: { weight: 1 }
+      css/components.css: { weight: 2 }
+      css/magnific-popup.css: { weight: 3 }
+    theme:
+      css/theme.css: { weight: 1 }
+      css/search.css: { weight: 2 }
+      css/navigation.css: { weight: 3 }
+      css/content.css: { weight: 4 }
+      css/print.css: { media: print }
+
+# Global Scripts
+global-scripts:
+  js:
+    js/bootstrap.js: {}
+    js/scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/modernizr
+
+# Viewport Size
+viewport-size:
+  version: VERSION
+  css:
+    theme:
+      css/viewport-size.css: {}
+  js:
+    js/viewport-size.js: {}
+  dependencies:
+    - core/jquery
+
+# Scroll Top
+scroll-top:
+  version: VERSION
+  css:
+    theme:
+      css/scroll-top.css: {}
+  js:
+    js/scroll-top.js: {}
+  dependencies:
+    - core/jquery
+
+# Sticky Header
+sticky-header:
+  version: VERSION
+  css:
+    theme:
+      css/sticky-header.css: {}
+  js:
+    js/sticky-header.js: {}
+  dependencies:
+    - core/jquery
+
+# Parallax
+parallax:
+  js:
+    js/parallax.js: {}
+
+# Masonry
+masonry:
+  version: VERSION
+  js:
+    js/masonry.pkgd.min.js: {}
+    js/masonry.js: {}
+  dependencies:
+    - core/jquery
+
+# Slice Gallery
+slice-gallery:
+  version: VERSION
+  js:
+    js/slice-gallery.js: {}
+  dependencies:
+    - core/jquery
+
+# Slice MFP Video
+slice-mfp-video:
+  version: VERSION
+  js:
+    js/slice-mfp-video.js: {}
+  dependencies:
+    - core/jquery

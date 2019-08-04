@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Text Align
+ */
+
+@each $breakpoint-name, $breakpoint-size in $breakpoint {
+
+  @media (min-width: $breakpoint-size) {
+
+    .text-#{$breakpoint-name}-left {
+      text-align:left;
+    }
+
+    .text-#{$breakpoint-name}-center {
+      text-align:center;
+    }
+
+    .text-#{$breakpoint-name}-right {
+      text-align:right;
+    }
+
+  }
+
+}

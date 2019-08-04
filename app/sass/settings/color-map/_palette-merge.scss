@@ -1,0 +1,14 @@
+/**
+ * @file
+ * Palette Merge
+ */
+
+// Color Map
+$color-map: map-merge(map-merge(map-merge(map-merge($color-base, $color-brand), $color-theme), $color-actions), $color-alerts);
+
+// Palette Map
+$palette-map: map-merge(map-merge(map-merge(map-merge($palette-base, $palette-brand), $palette-theme), $palette-actions), $palette-alerts);
+
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palette-map, $palette), $tone);
+}

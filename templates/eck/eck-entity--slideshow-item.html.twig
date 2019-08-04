@@ -1,0 +1,61 @@
+{# Overlay Color #}
+{% if content.field_overlay_color[0] is not empty %}
+  {% set slice_overlay_color = true %}
+{% endif %}
+
+{# Text Color #}
+{% if content.field_text_color[0] is not empty %}
+  {% set slice_text_color = true %}
+{% endif %}
+
+{# Container Size #}
+{% if content.field_container_size[0] is not empty %}
+  {% set slice_container_size = true %}
+{% endif %}
+
+{# Slide Content Position #}
+{% if content.field_content_position is not empty %}
+  {% set slide_content_position = true %}
+{% endif %}
+
+{# Slide Fields #}
+{% set slide_heading = content.field_heading|render %}
+{% set slide_body = content.field_body|render %}
+{% set slide_button = content.field_button|render %}
+
+{% set classes = [
+'eck-entity',
+'slice-slide',
+slide_content_position ? 'slice-slide-' ~ (render_var(content.field_content_position.0)),
+(render_var(content.field_class_name.0)),
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+
+  <div class="slice-slide-image">
+    {{ content.field_image.0 }}
+    {% if slice_overlay_color %}
+      <div class="slice-slide-image-overlay" style="background-color:{{ content.field_overlay_color.0 }};"></div>
+    {% endif %}
+  </div> {# /.slice-slide-image #}
+
+  {% if slide_heading or slide_body or slide_button %}
+    <div class="slice-slide-wrapper mt-3 mt-md-0">
+      <div class="slice-slide-content{% if slice_container_size %} {{ content.field_container_size.0 }}{% else %} container{% endif %}">
+        {% if slide_heading %}
+          <h2 class="slice-slide-heading m-0"{% if slice_text_color %} style="color:{{ content.field_text_color.0 }}"{% endif %}>{{ content.field_heading.0 }}</h2>
+        {% endif %} {# /.slice-slide-heading #}
+        {% if slide_body %}
+          <div class="slice-slide-body mt-3"{% if slice_text_color %} style="color:{{ content.field_text_color.0 }}"{% endif %}>{{ content.field_body.0 }}</div>
+        {% endif %} {# /.slice-slide-body #}
+        {% if slide_button %}
+          <p class="slide-button mt-3">
+            {{ content.field_button.0 }}
+            {# <a class="btn btn-lg btn-primary" href="{{ content.field_button.0['#url'] }}">{{ content.field_button.0['#title'] }}</a> #}
+          </p>
+        {% endif %} {# /.slice-slide-button #}
+      </div> {# /.slice-slide-content #}
+    </div> {# /.slice-slide-wrapper #}
+  {% endif %}
+
+</div>

@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+
+{% if items|first.menu_level == 0 %}
+  <ul class="menu menu--{{ menu_name }} menu--{{ menu_name }}-expanded menu--expanded menu--expanded-icon menu--mega-menu menu-level-{{ items|first.menu_level }}">
+{% else %}
+  <ul class="menu menu-level-{{ items|first.menu_level }}">
+{% endif %}
+
+{% for key, item in items if key|first != '#' %}
+
+  {# Mega Menu Field #}
+  {%
+    set menu_content = item.entity.field_mega_menu.0 != null
+  %}
+
+  {% set menu_item_classes = [
+    'menu-item',
+    'menu-item-level-' ~ items|first.menu_level,
+    item.is_expanded? 'menu-item--expanded',
+    item.is_collapsed ? 'menu-item--collapsed',
+    item.in_active_trail ? 'active-trail',
+    menu_content ? 'menu-item--expanded menu-item--mega-menu',
+    'menu-' ~ item.title|lower|replace(' ', '-'),
+    ]
+  %}
+
+  {# URL Varialbe for comparison #}
+  {% set menuUri %}{{ item.url }}{% endset %}
+
+  {%
+    set link_classes = [
+      'menu-link',
+      'menu-link-level-' ~ items|first.menu_level,
+      item.is_expanded ? 'menu-link--expanded',
+      menu_content ? 'menu-link--expanded menu-link--expanded',
+      not menuUri ? 'menu-link--disable',
+    ]
+  %}
+
+  <li{{ item.attributes.addClass(menu_item_classes) }}>
+    {% set rendered_content = item.content|without('') %}
+
+    {% if item.below or menu_content %}
+
+      <a{{ item.attributes.removeClass(menu_item_classes).addClass(link_classes) }} href="{{ item.url }}" aria-haspopup="true">
+        <span>{{ item.title }}</span>
+        <span class="menu-link-chevron">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <use xlink:href="#icon-chevron-down"></use>
+          </svg>
+        </span>
+    </a>
+
+      {% if rendered_content|render %}
+        {{ rendered_content }}
+      {% endif %}
+
+    {% else %}
+
+        <a{{ item.attributes.removeClass(menu_item_classes).addClass(link_classes) }} href="{{ item.url }}"><span>{{ item.title }}</span></a>
+
+    {% endif %}
+
+  </li>
+
+{% endfor %}
+
+</ul>

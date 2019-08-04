@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Vertical Spacing
+ */
+
+@each $height, $value in $slice-spacers {
+
+  // Padding
+  .spt-#{$height} {
+    padding-top: $value !important;
+
+    @include minWidth(md) {
+      padding-top: ($value * 2) !important;
+    }
+
+  }
+
+  .spb-#{$height} {
+    padding-bottom: $value !important;
+
+    @include minWidth(md) {
+      padding-bottom: ($value * 2) !important;
+    }
+
+  }
+
+}

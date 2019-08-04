@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Actions Color Map
+ */
+
+// Include Color Map Variables
+@import '../varialbes/color-maps';
+
+// Include Create Color Map Function
+@import '../functions/create-color-map';
+
+$color-actions: (
+  success : $success,
+  info    : $info,
+  danger  : $danger,
+);
+
+$palette-actions: ();
+
+@each $key,
+$value in $color-actions {
+  $map: ();
+  $map: map-merge($map, ($key: create-color-map($value, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%)));
+  $palette-actions: map-merge($palette-actions, $map);
+}
+
+// @debug $palette-actions;

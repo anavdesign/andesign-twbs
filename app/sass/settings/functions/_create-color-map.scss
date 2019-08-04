@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Create Color Map
+ */
+
+@function create-color-map($color, $percent1, $percent2, $percent3, $percent4, $percent5, $percent6, $percent7, $percent8, $percent9) {
+  $map : (
+  base : $color,
+  l1 : lighten($color, $percent1),
+  l2 : lighten($color, $percent2),
+  l3 : lighten($color, $percent3),
+  l4 : lighten($color, $percent4),
+  l5 : lighten($color, $percent5),
+  l6 : lighten($color, $percent6),
+  l7 : lighten($color, $percent7),
+  l8 : lighten($color, $percent8),
+  l9 : lighten($color, $percent9),
+  d1 : darken($color, $percent1),
+  d2 : darken($color, $percent2),
+  d3 : darken($color, $percent3),
+  d4 : darken($color, $percent4),
+  d5 : darken($color, $percent5),
+  d6 : darken($color, $percent6),
+  d7 : darken($color, $percent7),
+  d8 : darken($color, $percent8),
+  d9 : darken($color, $percent9)
+  );
+  @return $map;
+}

@@ -1,0 +1,22 @@
+{# Container Size #}
+{% if content.field_container_size[0] is not empty %}
+  {% set slice_container_size = true %}
+{% endif %}
+
+{% set classes = [
+'eck-entity',
+'slice-content',
+'slice-content-map',
+(render_var(content.field_spacing_top.0)),
+(render_var(content.field_spacing_bottom.0)),
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if slice_container_size %}
+  <div class="{{ content.field_container_size.0 }}">
+  {% endif %}
+    <p>{{ content.field_map.0 }}</p>
+  {% if slice_container_size %}
+  </div>
+  {% endif %}
+</div>

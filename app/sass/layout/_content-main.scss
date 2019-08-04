@@ -1,0 +1,33 @@
+/**
+ * @file
+ * Content Main
+ */
+
+// Sidebar
+.layout-sidebar .layout-content-main__content {
+
+  @include mobile {
+
+    .sidebar {
+      margin-top: $layout-gutter;
+    }
+
+  }
+
+  @include desktop {
+    display: flex;
+
+    // Main Content
+    .layout-main {
+      flex: 1;
+    }
+
+    // Sidebar
+    .layout-sidebar {
+      flex: 0 1 30%;
+      margin-left: $layout-gutter;
+    }
+
+  }
+
+}

@@ -1,0 +1,17 @@
+/**
+ * @file
+ * Content Main
+ */
+
+.layout-content-main {
+  padding-bottom: 3em;
+
+  @include desktop {
+    padding-bottom: 3em * 1.75;
+  }
+
+  .layout-landing-page & {
+    padding-bottom: 0;
+  }
+
+}

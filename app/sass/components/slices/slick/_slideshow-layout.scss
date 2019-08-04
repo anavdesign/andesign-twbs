@@ -1,0 +1,69 @@
+/**
+ * @file
+ * Slideshow Layout
+ */
+
+.slice-slide {
+  position: relative;
+}
+
+// Slide Wrapper
+.slice-slide-wrapper {
+  display: flex;
+  padding: $layout-gutter;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slice-slide-wrapper {
+
+  .slice-slide-right &,
+  .slice-slide-left &,
+  .slice-slide-center & {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include minWidth(md) {
+
+    .slice-slide-right & {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .slice-slide-left & {
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+  }
+
+}
+
+// Slide Content
+.slice-slide-right,
+.slice-slide-left {
+
+  .slice-slide-content {
+
+    @include minWidth(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: none;
+      width: 50%;
+      margin: 0;
+    }
+
+    @include minWidth(lg) {
+      width: 40%;
+    }
+
+  }
+
+}
